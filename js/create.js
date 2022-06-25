@@ -27,7 +27,7 @@ function postData(objData) {
         if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
             var jsonResponse = JSON.parse(xmlHttpRequest.responseText);
             alert('Action success');
-            window.location.href = '/DangVanTienClient/index.html';
+            window.location.href = '/DangVantienClient/index.html';
         }
     }
     xmlHttpRequest.open('POST', API_URl);

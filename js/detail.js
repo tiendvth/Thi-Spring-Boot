@@ -1,15 +1,17 @@
 function loadDetail(id) {
-    var  xmlHttpRequest = new  XMLHttpRequest();
+    var xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.onreadystatechange = function (){
-        if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
-            var  jsonResponse = JSON.parse(xmlHttpRequest.responseText);
-            document.getElementById('content').innerHTML = xmlHttpRequest.responseText
+        if(xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200){
+            var jsonResponse = JSON.parse(xmlHttpRequest.responseText);
+            document.getElementById('content').innerHTML = xmlHttpRequest.responseText;
         }
     }
-    xmlHttpRequest.open('GET', API_URl + `${id}`);
+    xmlHttpRequest.open('GET', API_URl + `/${id}`);
     xmlHttpRequest.send();
+    // request lấy thông tin chi tiết
 }
-document.addEventListener('DOCContentLoaded', function (){
+
+document.addEventListener('DOMContentLoaded', function (){
     var id = getPrameterFormUrl('id');
-    loadDetail(id)
+    loadDetail(id);
 })
